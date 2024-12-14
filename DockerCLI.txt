@@ -1,0 +1,135 @@
+-> docker pull busybox
+Using default tag: latest
+latest: Pulling from library/busybox
+9c0abc9c5bd3: Pull complete 
+Digest: sha256:2919d0172f7524b2d8df9e50066a682669e6d170ac0f6a49676d54358fe970b5
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+
+-> docker run --name pinger busybox ping -c 7 netology.ru
+PING netology.ru (188.114.99.224): 56 data bytes
+64 bytes from 188.114.99.224: seq=0 ttl=54 time=9.508 ms
+64 bytes from 188.114.99.224: seq=1 ttl=54 time=7.028 ms
+64 bytes from 188.114.99.224: seq=2 ttl=54 time=19.120 ms
+64 bytes from 188.114.99.224: seq=3 ttl=54 time=7.371 ms
+64 bytes from 188.114.99.224: seq=4 ttl=54 time=10.084 ms
+64 bytes from 188.114.99.224: seq=5 ttl=54 time=6.920 ms
+64 bytes from 188.114.99.224: seq=6 ttl=54 time=11.046 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 6.920/10.153/19.120 ms
+
+-> docker ps -a
+CONTAINER ID   IMAGE                                           COMMAND                  CREATED              STATUS                          PORTS                                                           NAMES
+f357be4078dc   busybox                                         "ping -c 7 netology.…"   About a minute ago   Exited (0) About a minute ago                                                                   pinger
+b5fa7860af96   nginx                                           "/docker-entrypoint.…"   3 weeks ago          Up 29 hours                     0.0.0.0:80->80/tcp, :::80->80/tcp                               goods_nginx
+96db9da59863   kanban-board-master_mapm_app                    "entrypoint.sh sh -c…"   3 weeks ago          Up 29 hours                     9000/tcp                                                        mapm_app
+1763453bd302   kanban-board-master_goods_app                   "docker-php-entrypoi…"   3 weeks ago          Up 29 hours                     9000/tcp                                                        goods_app
+7b4466451efb   kanban-board-master_frontend-moderate-catalog   "docker-entrypoint.s…"   3 weeks ago          Up 29 hours                                                                                     frontend-moderate-catalog
+71f26ca439c1   kanban-board-master_frontend-moderate-form      "docker-entrypoint.s…"   3 weeks ago          Up 29 hours                                                                                     frontend-moderate-form
+be3f2922fdd7   kanban-board-master_frontend-public             "docker-entrypoint.s…"   3 weeks ago          Up 29 hours                                                                                     frontend-public
+64be27a0f22f   elasticsearch:6.8.23                            "/usr/local/bin/dock…"   3 weeks ago          Up 29 hours                     9200/tcp, 9300/tcp                                              goods_elastic
+faf7b3491477   redis:alpine                                    "docker-entrypoint.s…"   3 weeks ago          Up 29 hours                     0.0.0.0:6379->6379/tcp, :::6379->6379/tcp                       goods_redis
+f58a47f9f7e9   postgres:12                                     "docker-entrypoint.s…"   3 weeks ago          Up 29 hours                     0.0.0.0:5432->5432/tcp, :::5432->5432/tcp                       back_postgres
+0d1ee4335a57   minio/minio                                     "/usr/bin/docker-ent…"   3 weeks ago          Up 29 hours                     0.0.0.0:9000-9001->9000-9001/tcp, :::9000-9001->9000-9001/tcp   goods_minio
+68109ffb52cf   6e5ccdc858fc                                    "/bin/sh -c 'npm ins…"   2 months ago         Exited (254) 2 months ago                                                                       admiring_pike
+9d1f06f77fde   242f7f2b82ec                                    "/bin/sh -c 'cp -r /…"   2 months ago         Exited (1) 2 months ago                                                                         ecstatic_noyce
+968a534ab665   5ad0f0cda775                                    "/bin/sh -c 'mkdir -…"   2 months ago         Exited (1) 2 months ago                                                                         practical_margulis
+a8c4941dda86   c76f6dd6d24e                                    "/bin/sh -c 'mkdir -…"   2 months ago         Exited (1) 2 months ago                                                                         intelligent_jepsen
+31e4fa449c20   c76f6dd6d24e                                    "/bin/sh -c 'mkdir -…"   2 months ago         Exited (1) 2 months ago                                                                         frosty_goodall
+8600a9874b53   7c055d77d6b5                                    "/bin/sh -c 'npm ins…"   2 months ago         Exited (1) 2 months ago                                                                         frosty_morse
+ae36d9538dab   db89facd97e6                                    "/bin/sh -c 'ng buil…"   2 months ago         Exited (127) 2 months ago                                                                       inspiring_curran
+3d21b14b661b   af5b2b5fba8f                                    "/bin/sh -c 'npm ins…"   2 months ago         Exited (1) 2 months ago                                                                         infallible_morse
+bb6918dccff5   ed76138ef6d5                                    "/bin/sh -c 'npm ins…"   2 months ago         Exited (152) 2 months ago                                                                       condescending_khorana
+186c6890fd67   ed76138ef6d5                                    "/bin/sh -c 'npm ins…"   2 months ago         Exited (1) 2 months ago                                                                         nervous_wright
+ab709a617a61   ed76138ef6d5                                    "/bin/sh -c 'npm ins…"   2 months ago         Exited (1) 2 months ago                                                                         brave_lumiere
+21ddb80694be   ed76138ef6d5                                    "/bin/sh -c 'npm ins…"   2 months ago         Exited (1) 2 months ago                                                                         mystifying_merkle
+4ccdf75d8d03   b81adff33c36                                    "/bin/sh -c 'npm ins…"   2 months ago         Exited (1) 2 months ago                                                                         intelligent_lumiere
+594721861eaa   b81adff33c36                                    "/bin/sh -c 'npm ins…"   2 months ago         Exited (1) 2 months ago                                                                         affectionate_kapitsa
+3bcaf5c22c02   0fd371eb8d24                                    "/bin/sh -c 'npm ci …"   2 months ago         Exited (1) 2 months ago                                                                         jolly_volhard
+
+-> docker logs pinger
+PING netology.ru (188.114.99.224): 56 data bytes
+64 bytes from 188.114.99.224: seq=0 ttl=54 time=9.508 ms
+64 bytes from 188.114.99.224: seq=1 ttl=54 time=7.028 ms
+64 bytes from 188.114.99.224: seq=2 ttl=54 time=19.120 ms
+64 bytes from 188.114.99.224: seq=3 ttl=54 time=7.371 ms
+64 bytes from 188.114.99.224: seq=4 ttl=54 time=10.084 ms
+64 bytes from 188.114.99.224: seq=5 ttl=54 time=6.920 ms
+64 bytes from 188.114.99.224: seq=6 ttl=54 time=11.046 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 6.920/10.153/19.120 ms
+
+-> docker start pinger
+pinger
+
+-> docker ps -a
+CONTAINER ID   IMAGE                                           COMMAND                  CREATED        STATUS                      PORTS                                                           NAMES
+f357be4078dc   busybox                                         "ping -c 7 netology.…"   27 hours ago   Exited (0) 3 minutes ago                                                                    pinger
+b5fa7860af96   nginx                                           "/docker-entrypoint.…"   3 weeks ago    Up 2 days                   0.0.0.0:80->80/tcp, :::80->80/tcp                               goods_nginx
+96db9da59863   kanban-board-master_mapm_app                    "entrypoint.sh sh -c…"   3 weeks ago    Up 2 days                   9000/tcp                                                        mapm_app
+1763453bd302   kanban-board-master_goods_app                   "docker-php-entrypoi…"   3 weeks ago    Up 2 days                   9000/tcp                                                        goods_app
+7b4466451efb   kanban-board-master_frontend-moderate-catalog   "docker-entrypoint.s…"   3 weeks ago    Up 2 days                                                                                   frontend-moderate-catalog
+71f26ca439c1   kanban-board-master_frontend-moderate-form      "docker-entrypoint.s…"   3 weeks ago    Up 2 days                                                                                   frontend-moderate-form
+be3f2922fdd7   kanban-board-master_frontend-public             "docker-entrypoint.s…"   3 weeks ago    Up 2 days                                                                                   frontend-public
+64be27a0f22f   elasticsearch:6.8.23                            "/usr/local/bin/dock…"   3 weeks ago    Up 2 days                   9200/tcp, 9300/tcp                                              goods_elastic
+faf7b3491477   redis:alpine                                    "docker-entrypoint.s…"   3 weeks ago    Up 2 days                   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp                       goods_redis
+f58a47f9f7e9   postgres:12                                     "docker-entrypoint.s…"   3 weeks ago    Up 2 days                   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp                       back_postgres
+0d1ee4335a57   minio/minio                                     "/usr/bin/docker-ent…"   3 weeks ago    Up 2 days                   0.0.0.0:9000-9001->9000-9001/tcp, :::9000-9001->9000-9001/tcp   goods_minio
+68109ffb52cf   6e5ccdc858fc                                    "/bin/sh -c 'npm ins…"   2 months ago   Exited (254) 2 months ago                                                                   admiring_pike
+9d1f06f77fde   242f7f2b82ec                                    "/bin/sh -c 'cp -r /…"   2 months ago   Exited (1) 2 months ago                                                                     ecstatic_noyce
+968a534ab665   5ad0f0cda775                                    "/bin/sh -c 'mkdir -…"   2 months ago   Exited (1) 2 months ago                                                                     practical_margulis
+a8c4941dda86   c76f6dd6d24e                                    "/bin/sh -c 'mkdir -…"   2 months ago   Exited (1) 2 months ago                                                                     intelligent_jepsen
+31e4fa449c20   c76f6dd6d24e                                    "/bin/sh -c 'mkdir -…"   2 months ago   Exited (1) 2 months ago                                                                     frosty_goodall
+8600a9874b53   7c055d77d6b5                                    "/bin/sh -c 'npm ins…"   2 months ago   Exited (1) 2 months ago                                                                     frosty_morse
+ae36d9538dab   db89facd97e6                                    "/bin/sh -c 'ng buil…"   2 months ago   Exited (127) 2 months ago                                                                   inspiring_curran
+3d21b14b661b   af5b2b5fba8f                                    "/bin/sh -c 'npm ins…"   2 months ago   Exited (1) 2 months ago                                                                     infallible_morse
+bb6918dccff5   ed76138ef6d5                                    "/bin/sh -c 'npm ins…"   2 months ago   Exited (152) 2 months ago                                                                   condescending_khorana
+186c6890fd67   ed76138ef6d5                                    "/bin/sh -c 'npm ins…"   2 months ago   Exited (1) 2 months ago                                                                     nervous_wright
+ab709a617a61   ed76138ef6d5                                    "/bin/sh -c 'npm ins…"   2 months ago   Exited (1) 2 months ago                                                                     brave_lumiere
+21ddb80694be   ed76138ef6d5                                    "/bin/sh -c 'npm ins…"   2 months ago   Exited (1) 2 months ago                                                                     mystifying_merkle
+4ccdf75d8d03   b81adff33c36                                    "/bin/sh -c 'npm ins…"   2 months ago   Exited (1) 2 months ago                                                                     intelligent_lumiere
+594721861eaa   b81adff33c36                                    "/bin/sh -c 'npm ins…"   2 months ago   Exited (1) 2 months ago                                                                     affectionate_kapitsa
+3bcaf5c22c02   0fd371eb8d24                                    "/bin/sh -c 'npm ci …"   2 months ago   Exited (1) 2 months ago                                                                     jolly_volhard
+
+-> docker logs pinger
+PING netology.ru (188.114.99.224): 56 data bytes
+64 bytes from 188.114.99.224: seq=0 ttl=54 time=9.508 ms
+64 bytes from 188.114.99.224: seq=1 ttl=54 time=7.028 ms
+64 bytes from 188.114.99.224: seq=2 ttl=54 time=19.120 ms
+64 bytes from 188.114.99.224: seq=3 ttl=54 time=7.371 ms
+64 bytes from 188.114.99.224: seq=4 ttl=54 time=10.084 ms
+64 bytes from 188.114.99.224: seq=5 ttl=54 time=6.920 ms
+64 bytes from 188.114.99.224: seq=6 ttl=54 time=11.046 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 6.920/10.153/19.120 ms
+PING netology.ru (188.114.99.224): 56 data bytes
+64 bytes from 188.114.99.224: seq=0 ttl=54 time=7.888 ms
+64 bytes from 188.114.99.224: seq=1 ttl=54 time=9.343 ms
+64 bytes from 188.114.99.224: seq=2 ttl=54 time=6.541 ms
+64 bytes from 188.114.99.224: seq=3 ttl=54 time=31.942 ms
+64 bytes from 188.114.99.224: seq=4 ttl=54 time=5.539 ms
+64 bytes from 188.114.99.224: seq=5 ttl=54 time=8.673 ms
+64 bytes from 188.114.99.224: seq=6 ttl=54 time=8.843 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 5.539/11.252/31.942 ms
+
+// Количество запусков команды PING: 2
+// Запросов: 14
+
+-> docker rm pinger
+pinger
+
+docker rmi busybox
+Untagged: busybox:latest
+Untagged: busybox@sha256:2919d0172f7524b2d8df9e50066a682669e6d170ac0f6a49676d54358fe970b5
+Deleted: sha256:af47096251092caf59498806ab8d58e8173ecf5a182f024ce9d635b5b4a55d66
+Deleted: sha256:59654b79daad74c77dc2e28502ca577ba8ce73276720002234a23fc60ee92692
+
